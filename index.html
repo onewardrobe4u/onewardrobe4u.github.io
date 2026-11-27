@@ -11,15 +11,20 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Cpath d='M28 17a4 4 0 1 1 4 4v4L9 44h46L32 25' fill='none' stroke='%23fff' stroke-width='4' stroke-linejoin='miter'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/archivo-latin-900-italic.woff2" as="font" type="font/woff2" crossorigin>
-<script src="config.js"></script>
 <script>
-  /* Moving-house redirect: keeps old QR codes working if the hub moves. */
-  (function () {
+  /* Load config.js fresh on every visit (never a stale cached copy), then apply it. */
+  window.OW4U_READY = new Promise(function (done) {
+    var s = document.createElement("script");
+    s.src = "config.js?t=" + Date.now();
+    s.onload = s.onerror = function () { done(); };
+    document.head.appendChild(s);
+  }).then(function () {
+    /* Moving-house redirect: keeps old QR codes working if the hub moves. */
     var r = (window.OW4U || {}).redirect;
     if (typeof r === "string" && /^https:\/\/\S+\.\S+/.test(r) && r.indexOf(location.host) === -1) {
       location.replace(r + location.search);
     }
-  })();
+  });
 </script>
 <style>
 /*
@@ -293,7 +298,7 @@ footer a{color:#fff}
 </footer>
 
 <script>
-{
+window.OW4U_READY.then(() => {
   const C = window.OW4U || {};
   const ok = u => typeof u === "string" && /^https:\/\/[^\s"'<>]+\.[^\s"'<>]+$/.test(u.trim());
   const get = k => k.split(".").reduce((o, p) => (o && o[p] !== undefined ? o[p] : ""), C);
@@ -364,7 +369,7 @@ footer a{color:#fff}
     s.dataset.goatcounter = "https://" + C.goatcounter.trim() + ".goatcounter.com/count";
     document.body.appendChild(s);
   }
-}
+});
 </script>
 </body>
 </html>
