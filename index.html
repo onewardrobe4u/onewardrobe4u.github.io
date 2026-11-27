@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OneWardrobe4U | OW4U</title>
+<meta name="description" content="OneWardrobe4U (OW4U) is an independent UK resale brand for clothing, footwear and trainers. Shop our Vinted, Depop and eBay stores or review your order.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="OneWardrobe4U | OW4U">
+<meta property="og:description" content="Independent UK resale: clothing, footwear and trainers. Shop our stores or review your order.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Cpath d='M28 17a4 4 0 1 1 4 4v4L9 44h46L32 25' fill='none' stroke='%23fff' stroke-width='4' stroke-linejoin='miter'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/archivo-latin-900-italic.woff2" as="font" type="font/woff2" crossorigin>
+<script src="config.js"></script>
+<script>
+  /* Moving-house redirect: keeps old QR codes working if the hub moves. */
+  (function () {
+    var r = (window.OW4U || {}).redirect;
+    if (typeof r === "string" && /^https:\/\/\S+\.\S+/.test(r) && r.indexOf(location.host) === -1) {
+      location.replace(r + location.search);
+    }
+  })();
+</script>
+<style>
+/*
+VOICE   Confident premium streetwear retailer; warm, never loud.
+IDEA    The printed OW4U thank-you card, unfolded into a page.
+PICTURE Oversized OW4U wordmark, diagonal stripe field, slanted black banner, hanger.
+COLOUR  Pure white, deep black, one small yellow heart. Platforms get a 12px swatch only.
+TYPE    Archivo 900 italic (display), Archivo 800 (labels/buttons), system sans (body).
+LAYOUT  Mobile first: single column, big tap targets; 3-up grids from 900px.
+*/
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-900-italic.woff2) format("woff2");font-weight:900;font-style:italic;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-800-normal.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
+:root{color-scheme:light;--ink:#0a0a0a;--paper:#fff;--mute:#555;--line:#0a0a0a;--heart:#ffc93c;
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --stripe:repeating-linear-gradient(-45deg,var(--ink) 0 12px,transparent 12px 26px);
+  --pad:max(5vw,18px);--max:1180px}
+*{box-sizing:border-box;min-width:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+[hidden]{display:none!important}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.d{font-family:var(--display);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:.95}
+.lbl{font-family:var(--display);font-weight:800;font-style:normal;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--heart)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;z-index:9}
+.skip:focus{left:8px}
+.heart{width:1em;height:1em;display:inline-block;vertical-align:-.12em}
+
+/* Announcement */
+.ann{background:var(--ink);color:#fff;text-align:center;padding:10px var(--pad);font-size:14px;font-weight:600}
+.ann a{text-underline-offset:3px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:20px 0 56px;border-bottom:3px solid var(--ink)}
+.hero .stripes{position:absolute;top:0;right:0;width:min(44vw,560px);aspect-ratio:1/1;background:var(--stripe);clip-path:polygon(38% 0,100% 0,100% 62%);pointer-events:none}
+.hero .wedge{position:absolute;left:0;bottom:0;width:min(26vw,200px);aspect-ratio:1/1;background:var(--ink);clip-path:polygon(0 55%,0 100%,45% 100%);pointer-events:none}
+.top{display:flex;align-items:center;gap:10px;position:relative}
+.top svg{width:34px;height:22px}
+.top .lbl{font-size:12px}
+.mark{margin:clamp(40px,9vw,80px) 0 0;font-size:clamp(78px,26vw,300px);line-height:.8;position:relative}
+.banner{display:inline-block;position:relative;margin:14px 0 0 -6px;background:var(--ink);color:#fff;padding:10px 22px 10px 18px;transform:skewX(-14deg);transform-origin:left}
+.banner span{display:block;transform:skewX(14deg);font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(17px,4.6vw,30px);letter-spacing:.04em}
+.hero h1{font-size:clamp(34px,7.4vw,60px);margin:34px 0 14px;max-width:14ch;text-wrap:balance}
+.hero p.sub{font-size:clamp(17px,2.2vw,20px);max-width:36ch;margin:0 0 28px;color:#222}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 22px;border:3px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:15px;transition:transform .15s ease,background .15s ease,color .15s ease;-webkit-tap-highlight-color:transparent}
+.btn:hover{background:#fff;color:var(--ink)}
+.btn:active{transform:translateY(2px) scale(.985)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn .arr{transition:transform .2s ease}
+.btn:hover .arr{transform:translateX(4px)}
+.txt{font-weight:700;text-underline-offset:4px;text-decoration-thickness:2px;padding:12px 4px;min-height:44px;display:inline-flex;align-items:center}
+@media (max-width:520px){.ctas .btn{flex:1 1 100%}}
+
+/* Entrance */
+@media (prefers-reduced-motion:no-preference){
+  .hero .stripes{animation:slide .8s cubic-bezier(.2,.7,.2,1) both}
+  .mark{animation:rise .7s .05s cubic-bezier(.2,.7,.2,1) both}
+  .banner{animation:wipe .55s .3s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1,.hero p.sub,.ctas{animation:fade .5s .45s ease both}
+  @keyframes slide{from{transform:translate(60px,-60px);opacity:0}}
+  @keyframes rise{from{transform:translateY(28px);opacity:0}}
+  @keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}}
+}
+
+/* Sections */
+section{padding:clamp(56px,8vw,96px) 0}
+.tag{display:inline-block;background:var(--ink);color:#fff;padding:6px 14px;transform:skewX(-14deg);margin-left:4px}
+.tag span{display:block;transform:skewX(14deg)}
+h2{font-size:clamp(36px,6.4vw,56px);margin:18px 0 14px;text-wrap:balance}
+.lead{font-size:18px;max-width:52ch;margin:0 0 34px;color:#222}
+.grid{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero .stripes{width:min(52vw,560px)}}
+
+/* Review cards */
+.card{position:relative;border:3px solid var(--ink);padding:24px 22px 22px;display:flex;flex-direction:column;background:#fff}
+.card::after{content:"";position:absolute;top:-3px;right:-3px;width:30px;height:30px;background:var(--ink);clip-path:polygon(0 0,100% 0,100% 100%)}
+.pf{display:flex;align-items:center;gap:10px;font-size:32px}
+.sw{width:12px;height:12px;flex:none;transform:skewX(-14deg)}
+.card ol{margin:16px 0 6px;padding-left:22px;font-size:16px}
+.card li{margin:6px 0}
+.note{font-size:14px;color:var(--mute);margin:6px 0 18px}
+.card .btn{margin-top:auto;width:100%;padding-inline:14px;letter-spacing:.03em;white-space:nowrap}
+.card.match{order:-1}
+.card .yours{position:absolute;top:-14px;left:16px;background:var(--heart);border:2px solid var(--ink);padding:2px 8px;font-size:11px}
+.honest{display:flex;gap:12px;align-items:flex-start;margin:30px 0 0;max-width:62ch;font-size:16px}
+.honest .heart{width:22px;height:22px;flex:none;margin-top:2px}
+
+/* Shop tiles */
+.shop{background:#fff;border-top:3px solid var(--ink)}
+.tile{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:260px;padding:26px 24px 0;background:var(--ink);color:#fff;text-decoration:none;transition:transform .18s ease;-webkit-tap-highlight-color:transparent}
+.tile::before{content:"";position:absolute;inset:0 0 0 auto;width:55%;background:repeating-linear-gradient(-45deg,#fff 0 10px,transparent 10px 24px);opacity:.09;clip-path:polygon(40% 0,100% 0,100% 100%,0 100%);transition:opacity .25s ease,transform .35s ease;transform:translateX(18%)}
+.tile:hover::before,.tile:focus-visible::before{opacity:.22;transform:none}
+.tile:active{transform:scale(.985)}
+.tile .pf{font-size:clamp(44px,9vw,58px)}
+.tile p{margin:12px 0 26px;max-width:30ch;color:#e6e6e6;font-size:16px;position:relative}
+.tile .go{margin-top:auto;margin-inline:-24px;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:#fff;color:var(--ink);border:3px solid var(--ink);border-top:0;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:15px;position:relative}
+.tile .go .arr{transition:transform .2s ease;font-size:20px}
+.tile:hover .go .arr{transform:translateX(6px)}
+.soon{border:3px dashed #999;padding:22px;color:var(--mute);font-size:16px}
+
+/* About */
+.about{border-top:3px solid var(--ink);position:relative;overflow:hidden}
+.about .stripes{position:absolute;right:0;bottom:0;width:min(40vw,320px);aspect-ratio:1/1;background:var(--stripe);clip-path:polygon(100% 30%,100% 100%,30% 100%);opacity:.9;pointer-events:none}
+.two{display:grid;gap:28px;grid-template-columns:minmax(0,1fr);position:relative}
+@media (min-width:900px){.two{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end}}
+.about p{max-width:56ch;margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;padding:0;list-style:none}
+.chips li{border:2px solid var(--ink);padding:8px 14px;transform:skewX(-14deg)}
+.chips li span{display:block;transform:skewX(14deg)}
+.social{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* Support */
+.support{padding:clamp(40px,6vw,64px) 0;background:#f4f4f4;border-top:3px solid var(--ink)}
+.support h2{font-size:clamp(26px,4.4vw,36px);margin-top:0}
+.support p{max-width:60ch;margin:0 0 10px}
+.links{display:flex;flex-wrap:wrap;gap:4px 22px;margin-top:10px}
+
+/* Footer */
+footer{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:56px 0 36px}
+footer .stripes{position:absolute;top:0;right:0;width:min(50vw,380px);aspect-ratio:2/1;background:repeating-linear-gradient(-45deg,#fff 0 12px,transparent 12px 26px);clip-path:polygon(30% 0,100% 0,100% 100%);opacity:.9;pointer-events:none}
+footer .d{color:#fff;font-size:clamp(72px,18vw,150px);line-height:.8;position:relative}
+footer p{color:#cfcfcf;font-size:14px;margin:18px 0 0;position:relative}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+<a class="skip" href="#review">Skip to reviews</a>
+
+<div class="ann" id="ann" hidden><a id="annLink"></a><span id="annText"></span></div>
+
+<header class="hero">
+  <div class="stripes" aria-hidden="true"></div>
+  <div class="wedge" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="top">
+      <svg viewBox="0 0 64 40" aria-hidden="true"><path d="M27 8a5 5 0 1 1 5 5v5L4 36h56L32 18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="miter"/></svg>
+      <span class="lbl">Independent UK resale</span>
+    </div>
+    <p class="mark d" aria-hidden="true">OW4U</p>
+    <div class="banner"><span>ONEWARDROBE4U</span></div>
+    <h1 class="d">Your wardrobe. Your style.</h1>
+    <p class="sub">Thanks for shopping with OneWardrobe4U. Rate your order, find your next favourite piece, or get to know us.</p>
+    <div class="ctas">
+      <a class="btn" href="#review">Rate your order <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 15.8 12 21 12 21z" fill="#ffc93c" stroke="#fff" stroke-width="1.6"/></svg></a>
+      <a class="btn ghost" href="#shop" id="heroShop">Shop again <span class="arr" aria-hidden="true">→</span></a>
+      <a class="txt" href="#about">About OW4U</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="review" aria-labelledby="rv-h">
+  <div class="wrap">
+    <div class="tag lbl"><span>Reviews</span></div>
+    <h2 class="d" id="rv-h">How was your order?</h2>
+    <p class="lead">Your feedback makes a real difference to our independent business. We'd love to hear about your experience. <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 15.8 12 21 12 21z" fill="#ffc93c" stroke="#0a0a0a" stroke-width="1.6"/></svg></p>
+    <div class="grid" id="reviewGrid">
+      <article class="card" data-p="vinted" hidden>
+        <div class="pf d"><span class="sw" style="background:#007782"></span>Vinted</div>
+        <ol>
+          <li>Open your Vinted <b>Inbox</b> and tap the chat for your OW4U order.</li>
+          <li>Tap <b>Leave feedback</b>. It appears once the order is completed.</li>
+        </ol>
+        <p class="note">Vinted gives you 4 days after the order completes to leave feedback.</p>
+        <a class="btn" data-k="vinted.review" data-gc="review-vinted">Review on Vinted <span class="arr" aria-hidden="true">↗</span></a>
+      </article>
+      <article class="card" data-p="depop" hidden>
+        <div class="pf d"><span class="sw" style="background:#ff2300"></span>Depop</div>
+        <ol>
+          <li>Go to your <b>Profile</b>, then your <b>Purchases</b>.</li>
+          <li>Tap your OW4U item, then <b>Leave feedback</b>.</li>
+        </ol>
+        <p class="note">Reviews are left in the Depop app or site, from your purchase.</p>
+        <a class="btn" data-k="depop.review" data-gc="review-depop">Review on Depop <span class="arr" aria-hidden="true">↗</span></a>
+      </article>
+      <article class="card" data-p="ebay" hidden>
+        <div class="pf d"><span class="sw" style="background:#0064d2"></span>eBay</div>
+        <ol>
+          <li>Tap below to open eBay's <b>Leave feedback</b> page and sign in.</li>
+          <li>Find your OW4U purchase and leave your rating.</li>
+        </ol>
+        <p class="note">eBay also emails you a feedback reminder after you buy.</p>
+        <a class="btn" data-k="ebay.review" data-gc="review-ebay">Leave feedback on eBay <span class="arr" aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+    <p class="honest"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 15.8 12 21 12 21z" fill="#ffc93c" stroke="#0a0a0a" stroke-width="1.6"/></svg>
+      <span>Every honest review helps, good or bad. If something isn't right, message us on the platform you bought from and we'll do our best to put it right. You're always free to review it however you like.</span></p>
+  </div>
+</section>
+
+<section class="shop" id="shop" aria-labelledby="sh-h" hidden>
+  <div class="wrap">
+    <div class="tag lbl"><span>Our stores</span></div>
+    <h2 class="d" id="sh-h">Find your next favourite.</h2>
+    <p class="lead">New pieces go up regularly across all three stores. Follow or save us so you see them first.</p>
+    <div class="grid dark">
+      <a class="tile" data-k="vinted.store" data-gc="shop-vinted" hidden>
+        <span class="pf d"><span class="sw" style="background:#007782"></span>Vinted</span>
+        <p>Browse our latest clothing, footwear and fashion listings.</p>
+        <span class="go">Shop on Vinted <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" data-k="depop.store" data-gc="shop-depop" hidden>
+        <span class="pf d"><span class="sw" style="background:#ff2300"></span>Depop</span>
+        <p>Discover your next outfit and explore our latest pieces.</p>
+        <span class="go">Shop on Depop <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" data-k="ebay.store" data-gc="shop-ebay" hidden>
+        <span class="pf d"><span class="sw" style="background:#0064d2"></span>eBay</span>
+        <p>Explore our available products and discover something new.</p>
+        <span class="go">Shop on eBay <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="tile" data-k="website" data-gc="shop-website" hidden>
+        <span class="pf d"><span class="sw" style="background:#ffc93c"></span>OW4U</span>
+        <p>Shop direct from our own online store.</p>
+        <span class="go">Shop OW4U <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about" aria-labelledby="ab-h">
+  <div class="stripes" aria-hidden="true"></div>
+  <div class="wrap two">
+    <div>
+      <div class="tag lbl"><span>About us</span></div>
+      <h2 class="d" id="ab-h">Independent. UK&#8209;based. Fashion&#8209;first.</h2>
+    </div>
+    <div>
+      <p>OneWardrobe4U is an independent UK resale business for clothing, footwear and trainers. We find pieces worth wearing again, list them honestly with photos of the actual item, and send them on to their next owner.</p>
+      <p>Whether you're after everyday staples, streetwear or your next pair of trainers, we're here to help you find your next favourite piece.</p>
+      <ul class="chips lbl" aria-label="What we sell">
+        <li><span>Clothing</span></li><li><span>Footwear</span></li><li><span>Trainers</span></li><li><span>Streetwear</span></li>
+      </ul>
+      <div class="social" id="social" hidden>
+        <a class="btn ghost" data-k="instagram" data-gc="social-instagram" hidden>Instagram <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="btn ghost" data-k="tiktok" data-gc="social-tiktok" hidden>TikTok <span class="arr" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="support" id="help" aria-labelledby="hp-h">
+  <div class="wrap">
+    <h2 class="d" id="hp-h">Need a hand with your order?</h2>
+    <p>Message us through the platform you bought from: Vinted, Depop or eBay. Keeping messages, returns and any issues there means your purchase stays covered by that platform's buyer protection, and we can see your order details straight away.</p>
+    <div class="links">
+      <a class="txt" data-k="vinted.review" data-gc="help-vinted" hidden>Open Vinted ↗</a>
+      <a class="txt" data-k="depop.review" data-gc="help-depop" hidden>Open Depop ↗</a>
+      <a class="txt" href="https://www.ebay.co.uk/mye/myebay/purchase" target="_blank" rel="noopener" data-gc="help-ebay">eBay purchases ↗</a>
+    </div>
+    <p id="emailRow" hidden>Something else, like a business or stock enquiry? Email <a id="emailLink"></a>.</p>
+  </div>
+</section>
+</main>
+
+<footer class="dark">
+  <div class="stripes" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="d" aria-hidden="true">OW4U</p>
+    <p><b>OneWardrobe4U</b> · Independent UK fashion resale · Vinted · Depop · eBay</p>
+    <p>© <span id="yr">2026</span> OneWardrobe4U. Thank you for supporting a small business. <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 15.8 12 21 12 21z" fill="#ffc93c"/></svg></p>
+  </div>
+</footer>
+
+<script>
+{
+  const C = window.OW4U || {};
+  const ok = u => typeof u === "string" && /^https:\/\/[^\s"'<>]+\.[^\s"'<>]+$/.test(u.trim());
+  const get = k => k.split(".").reduce((o, p) => (o && o[p] !== undefined ? o[p] : ""), C);
+
+  // Wire every config-driven link; anything without a valid https link stays hidden.
+  for (const a of document.querySelectorAll("[data-k]")) {
+    const u = get(a.dataset.k);
+    if (!ok(u)) continue;
+    a.href = u.trim();
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.hidden = false;
+    const card = a.closest(".card");
+    if (card) card.hidden = false;
+  }
+
+  // Show the shop section and its hero button only if at least one store is live.
+  const shopLive = document.querySelector("#shop .tile:not([hidden])");
+  document.getElementById("shop").hidden = !shopLive;
+  document.getElementById("heroShop").hidden = !shopLive;
+
+  // Socials row.
+  document.getElementById("social").hidden = !document.querySelector("#social [data-k]:not([hidden])");
+
+  // Contact email (text shown too, since mail links fail in some in-app browsers).
+  if (typeof C.email === "string" && /^[^\s@<>"']+@[^\s@<>"']+\.[a-z]{2,}$/i.test(C.email.trim())) {
+    const e = document.getElementById("emailLink");
+    e.textContent = C.email.trim();
+    e.href = "mailto:" + C.email.trim();
+    document.getElementById("emailRow").hidden = false;
+  }
+
+  // Announcement strip.
+  const an = C.announcement || {};
+  if (typeof an.text === "string" && an.text.trim()) {
+    const box = document.getElementById("ann");
+    if (ok(an.link)) {
+      const l = document.getElementById("annLink");
+      l.textContent = an.text.trim() + " →";
+      l.href = an.link.trim(); l.target = "_blank"; l.rel = "noopener";
+      l.dataset.gc = "announcement";
+    } else {
+      document.getElementById("annText").textContent = an.text.trim();
+    }
+    box.hidden = false;
+  }
+
+  // ?p=vinted|depop|ebay puts that platform's review card first (for platform-specific cards later).
+  try {
+    const p = new URLSearchParams(location.search).get("p");
+    const m = p && document.querySelector('.card[data-p="' + p.replace(/[^a-z]/g, "") + '"]:not([hidden])');
+    if (m) {
+      m.classList.add("match");
+      const t = document.createElement("span");
+      t.className = "yours lbl"; t.textContent = "Your order";
+      m.prepend(t);
+    }
+  } catch (e) {}
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Optional cookie-free visit + click counting (GoatCounter). Off unless configured.
+  if (typeof C.goatcounter === "string" && /^[a-z0-9-]+$/i.test(C.goatcounter.trim())) {
+    for (const a of document.querySelectorAll("[data-gc]")) a.setAttribute("data-goatcounter-click", a.dataset.gc);
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://gc.zgo.at/count.js";
+    s.dataset.goatcounter = "https://" + C.goatcounter.trim() + ".goatcounter.com/count";
+    document.body.appendChild(s);
+  }
+}
+</script>
+</body>
+</html>
