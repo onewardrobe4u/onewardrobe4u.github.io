@@ -14,23 +14,23 @@ window.OW4U = {
 
   /* ---------- YOUR SHOPS ---------- */
   vinted: {
-    // Your Vinted profile, e.g. https://www.vinted.co.uk/member/123456789-yourname
-    store: "",
-    // Where the "Review on Vinted" button goes: the buyer's Vinted Inbox,
-    // where the "Leave feedback" button sits inside their order chat.
-    review: "https://www.vinted.co.uk/inbox",
+    // Your Vinted profile
+    store: "https://www.vinted.co.uk/member/3217380773",
+    // Where the "Review on Vinted" button goes: the buyer's My orders > Bought list.
+    // Each order opens its chat, where the "Leave feedback" button sits.
+    review: "https://www.vinted.co.uk/my_orders?order_type=purchased",
   },
 
   depop: {
-    // Your Depop shop, e.g. https://www.depop.com/yourname/
-    store: "",
+    // Your Depop shop
+    store: "https://www.depop.com/onewardrobe4u/",
     // Where the "Review on Depop" button goes: the buyer's Purchased page.
     review: "https://www.depop.com/purchases/",
   },
 
   ebay: {
-    // Your eBay shop or profile, e.g. https://www.ebay.co.uk/usr/yourname
-    store: "",
+    // Your eBay shop or profile
+    store: "https://www.ebay.co.uk/usr/onewardrobe4u",
     // eBay's own Leave Feedback page (lists every purchase the buyer can rate).
     review: "https://www.ebay.co.uk/fdbk/leave_feedback",
   },
