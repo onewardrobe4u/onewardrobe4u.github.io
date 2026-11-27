@@ -16,16 +16,16 @@ window.OW4U = {
   vinted: {
     // Your Vinted profile, e.g. https://www.vinted.co.uk/member/123456789-yourname
     store: "",
-    // Where the "Review on Vinted" button goes. Vinted has no direct review
-    // link: feedback is left inside the order conversation, so this opens Vinted.
-    review: "https://www.vinted.co.uk/",
+    // Where the "Review on Vinted" button goes: the buyer's Vinted Inbox,
+    // where the "Leave feedback" button sits inside their order chat.
+    review: "https://www.vinted.co.uk/inbox",
   },
 
   depop: {
     // Your Depop shop, e.g. https://www.depop.com/yourname/
     store: "",
-    // Depop reviews are left from the buyer's purchase receipt, so this opens Depop.
-    review: "https://www.depop.com/",
+    // Where the "Review on Depop" button goes: the buyer's Purchased page.
+    review: "https://www.depop.com/purchases/",
   },
 
   ebay: {
