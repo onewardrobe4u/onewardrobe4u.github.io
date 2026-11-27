@@ -123,6 +123,7 @@ h2{font-size:clamp(36px,6.4vw,56px);margin:18px 0 14px;text-wrap:balance}
 .note{font-size:14px;color:var(--mute);margin:6px 0 18px}
 .card .btn{margin-top:auto;width:100%;padding-inline:14px;letter-spacing:.03em;white-space:nowrap}
 .card.match{order:-1}
+.shopl{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:8px;font-weight:700;text-underline-offset:4px;text-decoration-thickness:2px}
 .card .yours{position:absolute;top:-14px;left:16px;background:var(--heart);border:2px solid var(--ink);padding:2px 8px;font-size:11px}
 .honest{display:flex;gap:12px;align-items:flex-start;margin:30px 0 0;max-width:62ch;font-size:16px}
 .honest .heart{width:22px;height:22px;flex:none;margin-top:2px}
@@ -192,7 +193,14 @@ footer a{color:#fff}
         </div>
         <p class="qn">Vinted: open our chat, then <b>Leave feedback</b>. Depop: tap your item, then <b>Leave feedback</b>. <a href="#review">Full steps</a></p>
       </div>
-      <a class="btn ghost" href="#shop" id="heroShop">Shop again <span class="arr" aria-hidden="true">→</span></a>
+      <div class="quick" role="group" aria-labelledby="qs-h" id="heroShop" hidden>
+        <p class="lbl qh" id="qs-h">Shop again: find your next favourite</p>
+        <div class="qb">
+          <a class="btn ghost" data-k="vinted.store" data-gc="quickshop-vinted" hidden>Vinted <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn ghost" data-k="depop.store" data-gc="quickshop-depop" hidden>Depop <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn ghost" data-k="ebay.store" data-gc="quickshop-ebay" hidden>eBay <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
       <a class="txt" href="#about">About OW4U</a>
     </div>
   </div>
@@ -213,6 +221,7 @@ footer a{color:#fff}
         </ol>
         <p class="note">Vinted gives you 4 days after the order completes to leave feedback.</p>
         <a class="btn" data-k="vinted.review" data-gc="review-vinted">Review on Vinted <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="shopl" data-k="vinted.store" data-gc="cardshop-vinted" hidden>Shop on Vinted →</a>
       </article>
       <article class="card" data-p="depop" hidden>
         <div class="pf d"><span class="sw" style="background:#ff2300"></span>Depop</div>
@@ -222,6 +231,7 @@ footer a{color:#fff}
         </ol>
         <p class="note">You'll need to be signed in to Depop to see your purchases.</p>
         <a class="btn" data-k="depop.review" data-gc="review-depop">Review on Depop <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="shopl" data-k="depop.store" data-gc="cardshop-depop" hidden>Shop on Depop →</a>
       </article>
       <article class="card" data-p="ebay" hidden>
         <div class="pf d"><span class="sw" style="background:#0064d2"></span>eBay</div>
@@ -231,6 +241,7 @@ footer a{color:#fff}
         </ol>
         <p class="note">eBay also emails you a feedback reminder after you buy.</p>
         <a class="btn" data-k="ebay.review" data-gc="review-ebay">Leave feedback on eBay <span class="arr" aria-hidden="true">↗</span></a>
+        <a class="shopl" data-k="ebay.store" data-gc="cardshop-ebay" hidden>Shop on eBay →</a>
       </article>
     </div>
     <p class="honest"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11.2A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.8C20 15.8 12 21 12 21z" fill="#ffc93c" stroke="#0a0a0a" stroke-width="1.6"/></svg>
@@ -333,7 +344,7 @@ window.OW4U_READY.then(() => {
   // Show the shop section and its hero button only if at least one store is live.
   const shopLive = document.querySelector("#shop .tile:not([hidden])");
   document.getElementById("shop").hidden = !shopLive;
-  document.getElementById("heroShop").hidden = !shopLive;
+  document.getElementById("heroShop").hidden = !document.querySelector("#heroShop a:not([hidden])");
 
   // Socials row.
   document.getElementById("social").hidden = !document.querySelector("#social [data-k]:not([hidden])");
